@@ -71,10 +71,10 @@ def signup():
 
 
         user_id = len(users) + 1
-        new_user = User(id=user_id, username=username, password=password)
-        users.append(new_user)
+        n_u = User(id=user_id, username=username, password=password)
+        users.append(n_u)
 
-            # Redirect to login page
+# Redirect to login page
         return redirect(url_for('login'))
 
     return render_template('signup.html')
@@ -84,3 +84,10 @@ def home():
     if not g.user:
         return redirect(url_for('login'))
     return render_template('home.html')
+
+
+@app.route('/')
+def stock():
+    if not g.user:
+        return redirect(url_for('login'))
+    return render_template('.html')
