@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stocks Detail for {{infolist.symbol}}</title>
+  <style>
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #DDD;
+  }
+
+  tr:hover {background-color: #D6EEEE;}
+
+  body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .topnav {
+    overflow: hidden;
+    background-color: #333;
+  }
+
+  .topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 32px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+
+  .topnav a.active {
+    background-color: #f27304;
+    color: white;
+  }
+
+  .title {
+  margin-top: 8px;
+  margin-left: 8px;
+  font-size: 40px;
+  }
+
+  .title input[type=text] {
+  float: none;
+  padding: 6px;
+  border: solid;
+  font-size: 17px;
+}
+
+  </style>
+</head>
+<body>
+
+  <div class="topnav">
+    <a href="/login">Login</a>
+    <a href="/home">Home</a>
+    <a class="active" href="/stocks">Stocks</a>
+    <a href="/profile">Profile</a>
+    <a href="/home2">Viewer</a>
+  </div>
+  <h1>Stock Information for {{infolist.symbol}}</h1>
+
+  <div>
+    <table>
+      <tr>
+        <th>Symbol</th>
+        <th>Full Name</th>
+        <th>Sector</th>
+        <th>Currency</th>
+        <th>Country</th>
+        <th>Website</th>
+        <th>Price</th>
+        <th>Low</th>
+        <th>High</th>
+        <th>Volume</th>
+      </tr>
+      <tr>
+        <td>{{infolist.symbol}}</td>
+        <td>{{infolist.fullname}}</td>
+        <td>{{infolist.sector}}</td>
+        <td>{{infolist.currency}}</td>
+        <td>{{infolist.country}}</td>
+        <td><a href="{{infolist.website}}" target="_blank">{{infolist.website}}</a></td>
+        <td>{{infolist.price}}</td>
+        <td>{{infolist.lowprice}}</td>
+        <td>{{infolist.highprice}}</td>
+        <td>{{infolist.volume}}</td>
+      </tr>
+    </table>
+  </div>
+
+  <div>
+    <h2>Buy Shares</h2>
+    <form action="/buy/{{infolist.symbol}}" method="post">
+      <label for="quantity">Quantity:</label>
+      <input type="number" id="quantity" name="quantity" min="0" required>
+      <button type="submit">Buy Stock</button>
+    </form>
+  </div>
+<div>
+  <h2>Sell Shares</h2>
+    <form action="/sell/{{infolist.symbol}}" method="post">
+      <label for="quantity">Quantity:</label>
+      <input type="number" id="selling" name="selling" min="0" required>
+      <button type="submit">Sell Stock</button>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Purchase Result</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .topnav {
+            overflow: hidden;
+            background-color: #333;
+        }
+        .topnav a {
+            float: left;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 32px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .topnav a.active {
+            background-color: #f27304;
+            color: white;
+        }
+        .container {
+            padding: 20px;
+        }
+        .message {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+        }
+        .success {
+            border-color: #4CAF50;
+            color: #4CAF50;
+        }
+        .error {
+            border-color: #f44336;
+            color: #f44336;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Log</h1>
+    {% for message in messages %}
+    <div class="message {% if message.success %}success{% else %}error{% endif %}">
+        {{ message.text }}
+    </div>
+    {% endfor %}
+</div>
+
+</body>
+</html>
